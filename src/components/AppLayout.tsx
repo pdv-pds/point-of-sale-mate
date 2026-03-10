@@ -34,7 +34,7 @@ const AppLayout = () => {
           <div className="w-10 h-10 rounded-xl bg-sidebar-active flex items-center justify-center">
             <ShoppingCart className="w-5 h-5 text-sidebar-active-fg" />
           </div>
-          <span className="font-display font-bold text-lg text-sidebar-active-fg">PDV System</span>
+          <span className="font-display font-bold text-lg text-sidebar-active-fg">MEUCADINHO</span>
           <button className="ml-auto lg:hidden text-sidebar-fg" onClick={() => setSidebarOpen(false)}>
             <X className="w-5 h-5" />
           </button>

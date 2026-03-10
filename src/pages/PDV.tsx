@@ -57,6 +57,26 @@ const PDV = () => {
 
   useEffect(() => { carregarDados(); }, [carregarDados]);
 
+  // Busca de produtos no backend conforme o texto digitado
+  useEffect(() => {
+    let cancelado = false;
+
+    const buscar = async () => {
+      try {
+        const prods = await produtosApi.listar(search || undefined).catch(() => []);
+        if (!cancelado) setProdutosList(prods);
+      } catch {
+        if (!cancelado) setProdutosList([]);
+      }
+    };
+
+    buscar();
+
+    return () => {
+      cancelado = true;
+    };
+  }, [search]);
+
   const adicionarItem = async (produtoId: number) => {
     try {
       const v = await vendaApi.adicionarItem({ produtoId, quantidade: 1 });
@@ -99,7 +119,7 @@ const PDV = () => {
     const valor = parseFloat(valorInicial.replace(',', '.'));
     if (isNaN(valor) || valor < 0) { toast.error('Valor inválido'); return; }
     try {
-      const cx = await caixaApi.abrir({ valorInicial: valor });
+      const cx = await caixaApi.abrir({ saldoInicial: valor });
       setCaixaAberto(cx);
       setShowAbrirCaixa(false);
       setValorInicial('');
@@ -114,7 +134,7 @@ const PDV = () => {
     const valor = parseFloat(valorFinal.replace(',', '.'));
     if (isNaN(valor) || valor < 0) { toast.error('Valor inválido'); return; }
     try {
-      await caixaApi.fechar({ valorFinal: valor });
+      await caixaApi.fechar({ saldoFinalInformado: valor });
       setCaixaAberto(null);
       setVendaAtual(null);
       setShowFecharCaixa(false);
@@ -124,10 +144,6 @@ const PDV = () => {
       toast.error('Erro ao fechar caixa');
     }
   };
-
-  const filteredProducts = produtosList.filter(p =>
-    p.nome.toLowerCase().includes(search.toLowerCase())
-  );
 
   if (loading) {
     return <div className="flex items-center justify-center h-full p-8"><div className="text-muted-foreground">Carregando...</div></div>;
@@ -177,7 +193,7 @@ const PDV = () => {
         </div>
 
         <div className="flex-1 overflow-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 auto-rows-min">
-          {filteredProducts.map(p => (
+          {produtosList.map(p => (
             <button
               key={p.id}
               onClick={() => adicionarItem(p.id)}
@@ -190,7 +206,7 @@ const PDV = () => {
               <p className="text-primary font-bold mt-1">R$ {money(p.precoVenda)}</p>
             </button>
           ))}
-          {filteredProducts.length === 0 && (
+          {produtosList.length === 0 && (
             <div className="col-span-full text-center text-muted-foreground py-12">
               Nenhum produto encontrado
             </div>

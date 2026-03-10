@@ -75,14 +75,14 @@ export interface ItemVenda { id: number; produtoId: number; nomeProduto: string;
 export interface Venda { id: number; caixaId: number; dataVenda: string; valorTotal: number; valorPago: number; troco: number; status: 'ABERTA' | 'FINALIZADA' | 'CANCELADA'; dataCriacao: string; itens: ItemVenda[]; }
 export interface VendaFinalizar { valorPago: number; }
 
-export interface CaixaAbrir { valorInicial: number; }
+export interface CaixaAbrir { saldoInicial: number; }
 export interface CaixaResponse { id: number; usuarioId: number; nomeUsuario: string; valorInicial: number; valorFinal: number; dataAbertura: string; dataFechamento: string | null; status: 'ABERTO' | 'FECHADO'; }
 export interface CaixaResumo { caixa: CaixaResponse; totalVendas: number; quantidadeVendas: number; }
-export interface CaixaFechamento { valorFinal: number; }
+export interface CaixaFechamento { saldoFinalInformado: number; }
 
-export interface Usuario { id: number; nome: string; email: string; perfil: 'CAIXA' | 'ADMIN' | 'OPERADOR'; status: boolean; dataCriacao?: string; }
-export interface UsuarioCreate { nome: string; email: string; senha: string; perfil: 'CAIXA' | 'ADMIN' | 'OPERADOR'; }
-export interface UsuarioUpdate { nome?: string; email?: string; senhaAtual?: string; novaSenha?: string; perfil?: 'CAIXA' | 'ADMIN' | 'OPERADOR'; status?: boolean; }
+export interface Usuario { id: number; nome: string; email: string; perfil: 'CAIXA' | 'ADMIN'; status: boolean; dataCriacao?: string; }
+export interface UsuarioCreate { nome: string; email: string; senha: string; perfil: 'CAIXA' | 'ADMIN'; }
+export interface UsuarioUpdate { nome?: string; email?: string; senhaAtual?: string; novaSenha?: string; perfil?: 'CAIXA' | 'ADMIN'; status?: boolean; }
 
 export interface LogEstoqueRequest { produtoId: number; quantidade: number; }
 export interface LogEstoque { id: number; produtoId: number; nomeProduto: string; usuarioId: number; nomeUsuario: string; quantidade: number; tipoMovimentacao: 'ENTRADA' | 'SAIDA'; dataMovimentacao: string; }
@@ -110,7 +110,12 @@ export const venda = {
 
 // Produtos (caixa)
 export const produtos = {
-  listar: () => request<ProdutoCaixa[]>('/produtos'),
+  /**
+   * Lista produtos para o caixa.
+   * Se `busca` for informado, utiliza o endpoint com query param: /produtos?busca=XYZ
+   */
+  listar: (busca?: string) =>
+    request<ProdutoCaixa[]>(busca ? `/produtos?busca=${encodeURIComponent(busca)}` : '/produtos'),
   buscar: (id: number) => request<ProdutoCaixa>(`/produtos/${id}`),
 };
 
