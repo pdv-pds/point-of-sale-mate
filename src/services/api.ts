@@ -37,16 +37,14 @@ export interface LoginRequest {
 }
 export interface LoginResponse { token: string; }
 
-// Produtos no caixa (provavelmente mesmo schema de ProdutoCaixaResponseDTO)
+// Produtos no caixa (`/api/produtos`) - exemplo de response enviado
 export interface ProdutoCaixa {
   id: number;
   nome: string;
   categoria: string;
   codBarras: string;
   codInterno: string;
-  estoqueAtual: number;
   precoVenda: number;
-  ativo: boolean;
 }
 
 // Produtos no admin (`/api/admin/produtos`)

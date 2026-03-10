@@ -68,7 +68,10 @@ const PDV = () => {
 
   const removerItem = async (itemId: number) => {
     try {
-      const v = await vendaApi.removerItem(itemId);
+      // 1) DELETE no item
+      await vendaApi.removerItem(itemId);
+      // 2) GET /venda/atual para buscar o estado atualizado do carrinho
+      const v = await vendaApi.atual().catch(() => null);
       setVendaAtual(v);
     } catch {
       toast.error('Erro ao remover item');
@@ -178,15 +181,13 @@ const PDV = () => {
             <button
               key={p.id}
               onClick={() => adicionarItem(p.id)}
-              disabled={p.estoqueAtual <= 0}
-              className="bg-card rounded-xl border p-4 text-left hover:border-primary hover:shadow-md transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="bg-card rounded-xl border p-4 text-left hover:border-primary hover:shadow-md transition-all"
             >
               <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary mb-3">
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <h3 className="font-display font-semibold text-sm truncate">{p.nome}</h3>
               <p className="text-primary font-bold mt-1">R$ {money(p.precoVenda)}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Estoque: {p.estoqueAtual}</p>
             </button>
           ))}
           {filteredProducts.length === 0 && (
