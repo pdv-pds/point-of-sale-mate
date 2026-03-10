@@ -79,7 +79,7 @@ const AppLayout = () => {
           <button onClick={() => setSidebarOpen(true)}>
             <Menu className="w-6 h-6" />
           </button>
-          <span className="font-display font-bold ml-3">PDV System</span>
+          <span className="font-display font-bold ml-3">MEUCADINHO</span>
         </header>
         <main className="flex-1 overflow-auto">
           <Outlet />

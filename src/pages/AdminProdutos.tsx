@@ -30,13 +30,14 @@ const AdminProdutos = () => {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editando, setEditando] = useState<ProdutoAdmin | null>(null);
-  const [form, setForm] = useState<ProdutoRequest>({
+  // Formulário usa strings para inputs numéricos para não "travar" em 0
+  const [form, setForm] = useState({
     nome: '',
     categoria: '',
     codBarras: '',
     codInterno: '',
-    estoqueAtual: 0,
-    precoVenda: 0,
+    estoqueAtual: '',
+    precoVenda: '',
     ativo: true,
   });
 
@@ -57,8 +58,8 @@ const AdminProdutos = () => {
       categoria: '',
       codBarras: '',
       codInterno: '',
-      estoqueAtual: 0,
-      precoVenda: 0,
+      estoqueAtual: '',
+      precoVenda: '',
       ativo: true,
     });
     setShowForm(true);
@@ -71,8 +72,8 @@ const AdminProdutos = () => {
       categoria: p.categoria,
       codBarras: p.codBarras,
       codInterno: p.codInterno,
-      estoqueAtual: p.estoqueAtual,
-      precoVenda: p.precoVenda,
+      estoqueAtual: String(p.estoqueAtual ?? ''),
+      precoVenda: money(p.precoVenda),
       ativo: p.ativo,
     });
     setShowForm(true);
@@ -80,12 +81,22 @@ const AdminProdutos = () => {
 
   const salvar = async () => {
     if (!form.nome.trim()) { toast.error('Nome é obrigatório'); return; }
+
+    const payload: ProdutoRequest = {
+      nome: form.nome.trim(),
+      categoria: form.categoria.trim(),
+      codBarras: form.codBarras.trim(),
+      codInterno: form.codInterno.trim(),
+      estoqueAtual: Math.max(0, Math.floor(toNumber(form.estoqueAtual))),
+      precoVenda: toNumber(form.precoVenda),
+      ativo: form.ativo,
+    };
     try {
       if (editando) {
-        await adminProdutos.atualizar(editando.id, form);
+        await adminProdutos.atualizar(editando.id, payload);
         toast.success('Produto atualizado');
       } else {
-        await adminProdutos.criar(form);
+        await adminProdutos.criar(payload);
         toast.success('Produto criado');
       }
       setShowForm(false);
@@ -157,8 +168,23 @@ const AdminProdutos = () => {
             <div className="space-y-2"><Label>Categoria</Label><Input value={form.categoria} onChange={e => setForm(f => ({ ...f, categoria: e.target.value }))} /></div>
             <div className="space-y-2"><Label>Código Interno</Label><Input value={form.codInterno} onChange={e => setForm(f => ({ ...f, codInterno: e.target.value }))} /></div>
             <div className="space-y-2"><Label>Código de Barras</Label><Input value={form.codBarras} onChange={e => setForm(f => ({ ...f, codBarras: e.target.value }))} /></div>
-            <div className="space-y-2"><Label>Preço de Venda (R$)</Label><Input type="number" step="0.01" value={form.precoVenda} onChange={e => setForm(f => ({ ...f, precoVenda: parseFloat(e.target.value) || 0 }))} /></div>
-            <div className="space-y-2"><Label>Estoque Atual</Label><Input type="number" value={form.estoqueAtual} onChange={e => setForm(f => ({ ...f, estoqueAtual: parseInt(e.target.value) || 0 }))} /></div>
+            <div className="space-y-2">
+              <Label>Preço de Venda (R$)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={form.precoVenda}
+                onChange={e => setForm(f => ({ ...f, precoVenda: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Estoque Atual</Label>
+              <Input
+                type="number"
+                value={form.estoqueAtual}
+                onChange={e => setForm(f => ({ ...f, estoqueAtual: e.target.value }))}
+              />
+            </div>
           </div>
           <DialogFooter><Button onClick={salvar}>Salvar</Button></DialogFooter>
         </DialogContent>
