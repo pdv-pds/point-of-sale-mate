@@ -30,12 +30,47 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
 }
 
 // Types
-export interface LoginRequest { login: string; senha: string; }
+// Se o back espera "email" em vez de "login", ajustamos o contrato aqui
+export interface LoginRequest {
+  email: string;
+  senha: string;
+}
 export interface LoginResponse { token: string; }
 
-export interface ProdutoCaixa { id: number; nome: string; preco: number; quantidadeEstoque: number; }
-export interface ProdutoAdmin { id: number; nome: string; preco: number; quantidadeEstoque: number; ativo: boolean; }
-export interface ProdutoRequest { nome: string; preco: number; quantidadeEstoque: number; }
+// Produtos no caixa (provavelmente mesmo schema de ProdutoCaixaResponseDTO)
+export interface ProdutoCaixa {
+  id: number;
+  nome: string;
+  categoria: string;
+  codBarras: string;
+  codInterno: string;
+  estoqueAtual: number;
+  precoVenda: number;
+  ativo: boolean;
+}
+
+// Produtos no admin (`/api/admin/produtos`)
+export interface ProdutoAdmin {
+  id: number;
+  nome: string;
+  categoria: string;
+  codBarras: string;
+  codInterno: string;
+  estoqueAtual: number;
+  precoVenda: number;
+  ativo: boolean;
+}
+
+// Request para criar/atualizar produtos (ajustado ao schema do exemplo)
+export interface ProdutoRequest {
+  nome: string;
+  categoria: string;
+  codBarras: string;
+  codInterno: string;
+  estoqueAtual: number;
+  precoVenda: number;
+  ativo: boolean;
+}
 
 export interface ItemVendaRequest { produtoId: number; quantidade: number; }
 export interface ItemVenda { id: number; produtoId: number; nomeProduto: string; quantidade: number; precoUnitario: number; subtotal: number; }
@@ -47,9 +82,9 @@ export interface CaixaResponse { id: number; usuarioId: number; nomeUsuario: str
 export interface CaixaResumo { caixa: CaixaResponse; totalVendas: number; quantidadeVendas: number; }
 export interface CaixaFechamento { valorFinal: number; }
 
-export interface Usuario { id: number; nome: string; login: string; role: string; ativo: boolean; }
-export interface UsuarioCreate { nome: string; login: string; senha: string; role: string; }
-export interface UsuarioUpdate { nome?: string; login?: string; senha?: string; role?: string; ativo?: boolean; }
+export interface Usuario { id: number; nome: string; email: string; perfil: 'CAIXA' | 'ADMIN' | 'OPERADOR'; status: boolean; dataCriacao?: string; }
+export interface UsuarioCreate { nome: string; email: string; senha: string; perfil: 'CAIXA' | 'ADMIN' | 'OPERADOR'; }
+export interface UsuarioUpdate { nome?: string; email?: string; senhaAtual?: string; novaSenha?: string; perfil?: 'CAIXA' | 'ADMIN' | 'OPERADOR'; status?: boolean; }
 
 export interface LogEstoqueRequest { produtoId: number; quantidade: number; }
 export interface LogEstoque { id: number; produtoId: number; nomeProduto: string; usuarioId: number; nomeUsuario: string; quantidade: number; tipoMovimentacao: 'ENTRADA' | 'SAIDA'; dataMovimentacao: string; }

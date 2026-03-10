@@ -9,6 +9,19 @@ import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 
+function toNumber(value: unknown): number {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string') {
+    const n = parseFloat(value.replace(',', '.'));
+    return Number.isFinite(n) ? n : 0;
+  }
+  return 0;
+}
+
+function money(value: unknown): string {
+  return toNumber(value).toFixed(2);
+}
+
 const PDV = () => {
   const [produtosList, setProdutosList] = useState<ProdutoCaixa[]>([]);
   const [vendaAtual, setVendaAtual] = useState<Venda | null>(null);
@@ -67,7 +80,7 @@ const PDV = () => {
     if (isNaN(valor) || valor <= 0) { toast.error('Valor inválido'); return; }
     try {
       const v = await vendaApi.finalizar({ valorPago: valor });
-      toast.success(`Venda finalizada! Troco: R$ ${v.troco.toFixed(2)}`);
+      toast.success(`Venda finalizada! Troco: R$ ${money((v as any)?.troco)}`);
       setVendaAtual(null);
       setShowFinalizar(false);
       setValorPago('');
@@ -165,15 +178,15 @@ const PDV = () => {
             <button
               key={p.id}
               onClick={() => adicionarItem(p.id)}
-              disabled={p.quantidadeEstoque <= 0}
+              disabled={p.estoqueAtual <= 0}
               className="bg-card rounded-xl border p-4 text-left hover:border-primary hover:shadow-md transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary mb-3">
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <h3 className="font-display font-semibold text-sm truncate">{p.nome}</h3>
-              <p className="text-primary font-bold mt-1">R$ {p.preco.toFixed(2)}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Estoque: {p.quantidadeEstoque}</p>
+              <p className="text-primary font-bold mt-1">R$ {money(p.precoVenda)}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Estoque: {p.estoqueAtual}</p>
             </button>
           ))}
           {filteredProducts.length === 0 && (
@@ -201,10 +214,10 @@ const PDV = () => {
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-sm truncate">{item.nomeProduto}</p>
                 <p className="text-xs text-muted-foreground">
-                  {item.quantidade}x R$ {item.precoUnitario.toFixed(2)}
+                  {item.quantidade}x R$ {money((item as any)?.precoUnitario)}
                 </p>
               </div>
-              <span className="font-bold text-sm whitespace-nowrap">R$ {item.subtotal.toFixed(2)}</span>
+              <span className="font-bold text-sm whitespace-nowrap">R$ {money((item as any)?.subtotal)}</span>
               <button onClick={() => removerItem(item.id)} className="text-destructive hover:bg-destructive/10 rounded-lg p-1.5 transition-colors">
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -215,10 +228,10 @@ const PDV = () => {
         <div className="border-t p-4 space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground font-medium">Total</span>
-            <span className="font-display text-2xl font-bold">R$ {(vendaAtual?.valorTotal ?? 0).toFixed(2)}</span>
+            <span className="font-display text-2xl font-bold">R$ {money((vendaAtual as any)?.valorTotal ?? 0)}</span>
           </div>
           <Button
-            onClick={() => { setValorPago((vendaAtual?.valorTotal ?? 0).toFixed(2).replace('.', ',')); setShowFinalizar(true); }}
+            onClick={() => { setValorPago(money((vendaAtual as any)?.valorTotal ?? 0).replace('.', ',')); setShowFinalizar(true); }}
             disabled={!vendaAtual || vendaAtual.itens.length === 0}
             className="w-full h-14 text-base font-semibold rounded-xl"
             variant="success"
@@ -236,7 +249,7 @@ const PDV = () => {
           <div className="space-y-4">
             <div className="text-center">
               <p className="text-muted-foreground text-sm">Total da venda</p>
-              <p className="font-display text-3xl font-bold">R$ {(vendaAtual?.valorTotal ?? 0).toFixed(2)}</p>
+              <p className="font-display text-3xl font-bold">R$ {money((vendaAtual as any)?.valorTotal ?? 0)}</p>
             </div>
             <div className="space-y-2">
               <Label>Valor Pago (R$)</Label>
@@ -244,12 +257,12 @@ const PDV = () => {
             </div>
             {(() => {
               const pago = parseFloat(valorPago.replace(',', '.'));
-              const total = vendaAtual?.valorTotal ?? 0;
+              const total = toNumber((vendaAtual as any)?.valorTotal ?? 0);
               if (!isNaN(pago) && pago >= total) {
                 return (
                   <div className="bg-success/10 rounded-xl p-3 text-center">
                     <p className="text-sm text-muted-foreground">Troco</p>
-                    <p className="font-display text-xl font-bold text-success">R$ {(pago - total).toFixed(2)}</p>
+                    <p className="font-display text-xl font-bold text-success">R$ {money(pago - total)}</p>
                   </div>
                 );
               }

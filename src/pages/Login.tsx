@@ -8,7 +8,7 @@ import { ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Login = () => {
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
   const { login: doLogin } = useAuth();
@@ -16,10 +16,10 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!login.trim() || !senha.trim()) return;
+    if (!email.trim() || !senha.trim()) return;
     setLoading(true);
     try {
-      await doLogin({ login: login.trim(), senha });
+      await doLogin({ email: email.trim(), senha });
       navigate('/');
     } catch {
       toast.error('Login ou senha inválidos');
@@ -40,8 +40,8 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-lg p-6 space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="login">Usuário</Label>
-            <Input id="login" value={login} onChange={e => setLogin(e.target.value)} placeholder="Seu login" autoFocus />
+            <Label htmlFor="email">E-mail</Label>
+            <Input id="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Seu e-mail" autoFocus />
           </div>
           <div className="space-y-2">
             <Label htmlFor="senha">Senha</Label>

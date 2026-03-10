@@ -12,6 +12,19 @@ import { Plus, History } from 'lucide-react';
 import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 
+function toNumber(value: unknown): number {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string') {
+    const n = parseFloat(value.replace(',', '.'));
+    return Number.isFinite(n) ? n : 0;
+  }
+  return 0;
+}
+
+function money(value: unknown): string {
+  return toNumber(value).toFixed(2);
+}
+
 const AdminEstoque = () => {
   const [produtos, setProdutos] = useState<ProdutoAdmin[]>([]);
   const [loading, setLoading] = useState(true);
@@ -73,15 +86,15 @@ const AdminEstoque = () => {
           <TableBody>
             {loading ? (
               <TableRow><TableCell colSpan={4} className="text-center py-8 text-muted-foreground">Carregando...</TableCell></TableRow>
-            ) : produtos.map(p => (
+              ) : produtos.map(p => (
               <TableRow key={p.id}>
                 <TableCell className="font-medium">{p.nome}</TableCell>
                 <TableCell>
-                  <Badge variant={p.quantidadeEstoque > 10 ? 'default' : p.quantidadeEstoque > 0 ? 'secondary' : 'destructive'}>
-                    {p.quantidadeEstoque}
+                  <Badge variant={p.estoqueAtual > 10 ? 'default' : p.estoqueAtual > 0 ? 'secondary' : 'destructive'}>
+                    {p.estoqueAtual}
                   </Badge>
                 </TableCell>
-                <TableCell>R$ {p.preco.toFixed(2)}</TableCell>
+                <TableCell>R$ {money(p.precoVenda)}</TableCell>
                 <TableCell>
                   <Button variant="ghost" size="icon" onClick={() => verHistorico(p.id)}><History className="w-4 h-4" /></Button>
                 </TableCell>

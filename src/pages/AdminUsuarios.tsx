@@ -16,7 +16,7 @@ const AdminUsuarios = () => {
   const [lista, setLista] = useState<Usuario[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState<UsuarioCreate>({ nome: '', login: '', senha: '', role: 'OPERADOR' });
+  const [form, setForm] = useState<UsuarioCreate>({ nome: '', email: '', senha: '', perfil: 'OPERADOR' });
 
   const carregar = useCallback(async () => {
     setLoading(true);
@@ -28,12 +28,12 @@ const AdminUsuarios = () => {
   useEffect(() => { carregar(); }, [carregar]);
 
   const salvar = async () => {
-    if (!form.nome.trim() || !form.login.trim() || !form.senha.trim()) { toast.error('Preencha todos os campos'); return; }
+    if (!form.nome.trim() || !form.email.trim() || !form.senha.trim()) { toast.error('Preencha todos os campos'); return; }
     try {
       await adminUsuarios.criar(form);
       toast.success('Usuário criado');
       setShowForm(false);
-      setForm({ nome: '', login: '', senha: '', role: 'OPERADOR' });
+      setForm({ nome: '', email: '', senha: '', perfil: 'OPERADOR' });
       carregar();
     } catch { toast.error('Erro ao criar'); }
   };
@@ -56,8 +56,8 @@ const AdminUsuarios = () => {
           <TableHeader>
             <TableRow>
               <TableHead>Nome</TableHead>
-              <TableHead>Login</TableHead>
-              <TableHead>Role</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Perfil</TableHead>
               <TableHead>Status</TableHead>
               <TableHead className="w-16">Ações</TableHead>
             </TableRow>
@@ -70,9 +70,9 @@ const AdminUsuarios = () => {
             ) : lista.map(u => (
               <TableRow key={u.id}>
                 <TableCell className="font-medium">{u.nome}</TableCell>
-                <TableCell>{u.login}</TableCell>
-                <TableCell><Badge variant="secondary">{u.role}</Badge></TableCell>
-                <TableCell><Badge variant={u.ativo ? 'default' : 'secondary'}>{u.ativo ? 'Ativo' : 'Inativo'}</Badge></TableCell>
+                <TableCell>{u.email}</TableCell>
+                <TableCell><Badge variant="secondary">{u.perfil}</Badge></TableCell>
+                <TableCell><Badge variant={u.status ? 'default' : 'secondary'}>{u.status ? 'Ativo' : 'Inativo'}</Badge></TableCell>
                 <TableCell>
                   <Button variant="ghost" size="icon" onClick={() => excluir(u.id)} className="text-destructive"><Trash2 className="w-4 h-4" /></Button>
                 </TableCell>
@@ -87,14 +87,15 @@ const AdminUsuarios = () => {
           <DialogHeader><DialogTitle className="font-display">Novo Usuário</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2"><Label>Nome</Label><Input value={form.nome} onChange={e => setForm(f => ({ ...f, nome: e.target.value }))} /></div>
-            <div className="space-y-2"><Label>Login</Label><Input value={form.login} onChange={e => setForm(f => ({ ...f, login: e.target.value }))} /></div>
+            <div className="space-y-2"><Label>Email</Label><Input type="email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} /></div>
             <div className="space-y-2"><Label>Senha</Label><Input type="password" value={form.senha} onChange={e => setForm(f => ({ ...f, senha: e.target.value }))} /></div>
             <div className="space-y-2">
-              <Label>Role</Label>
-              <Select value={form.role} onValueChange={v => setForm(f => ({ ...f, role: v }))}>
+              <Label>Perfil</Label>
+              <Select value={form.perfil} onValueChange={v => setForm(f => ({ ...f, perfil: v as 'CAIXA' | 'ADMIN' | 'OPERADOR' }))}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="ADMIN">Admin</SelectItem>
+                  <SelectItem value="CAIXA">Caixa</SelectItem>
                   <SelectItem value="OPERADOR">Operador</SelectItem>
                 </SelectContent>
               </Select>
