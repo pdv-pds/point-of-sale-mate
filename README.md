@@ -1,39 +1,43 @@
-****Meucadinho****
+#****Meucadinho****
 
-**Introdução**
+###**Introdução**
 
 O Meucadinho é um sistema de ponto de venda (PDV) desenvolvido com o objetivo de auxiliar pequenos estabelecimentos comerciais na realização e controle de vendas.
 
 O sistema permite registrar produtos, realizar vendas e organizar as operações realizadas no caixa de forma simples e rápida. A aplicação foi desenvolvida com foco em praticidade e facilidade de uso, permitindo que operadores de caixa realizem as vendas de maneira intuitiva.
 
-**Motivação**
+####**Motivação**
 
 A motivação para o desenvolvimento do sistema surgiu da necessidade de pequenos comerciantes possuírem ferramentas simples e acessíveis para gerenciar suas vendas.
 
 Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado ou são complexos para pequenos negócios. Dessa forma, o Meucadinho foi desenvolvido como uma solução acadêmica que demonstra como um sistema de vendas pode ser estruturado utilizando tecnologias modernas de desenvolvimento web.
 
-**Telas do Sistema**
-**Tela Inicial**
+###**Telas do Sistema**
+
+####**Tela Inicial**
 
 <img width="1920" height="899" alt="{4409BD92-29FD-4111-A7B9-FB5AA62DA4A7}" src="https://github.com/user-attachments/assets/0876f96d-9793-4184-b4f3-105bbd612680" />
 
 <img width="1611" height="777" alt="{F78F4BC8-6A51-4905-856F-F9758FA46462}" src="https://github.com/user-attachments/assets/6ee76c79-fdad-416c-a511-a55a5513bf5d" />
 
 
-**Tela de Produtos**
+####**Tela de Produtos**
 
 <img width="1829" height="893" alt="{6C12CE2C-8B13-4CCD-8938-897BA90C42E8}" src="https://github.com/user-attachments/assets/ae67ed5e-582b-4b36-ba91-e7cee03ebd88" />
 
-**Tela de Usuários**
+####**Tela de Usuários**
 <img width="1889" height="884" alt="{54555E23-584A-4A5A-AF89-161ED3F32D94}" src="https://github.com/user-attachments/assets/51998848-a3d1-4dca-a243-f2ef8c73e50c" />
 
-**Tela de Estoque**
+####**Tela de Estoque**
 <img width="1873" height="887" alt="{876A23FC-72B2-441F-B5A3-911D7D91AD55}" src="https://github.com/user-attachments/assets/010f2b2a-ff5d-4830-878a-84ca87facd05" />
 
 
-**Requisitos**
-**Histórias de Usuário**
+###**Requisitos**
+
+####**Histórias de Usuário**
+
 **História:	Descrição**
+
 Historia 1: Como Operador de Caixa, eu quero adicionar produtos ao carrinho de vendas via código de barras ou código interno do produto, para que o atendimento seja rápido.
 
 Historia 2: Como Operador de Caixa, eu quero buscar um produto pelo nome, para que eu consiga vender itens cuja etiqueta está ilegível.
@@ -50,31 +54,25 @@ Historia 7: Como Administrador, eu quero dar entrada na quantidade de estoque do
 
 Historia 8: Como Administrador, eu quero cadastrar, editar e remover Operadores de Caixa e suas senhas, para que novos funcionários possam acessar o sistema.
 
-**Requisitos Não Funcionais**
+####**Requisitos Não Funcionais**
 
 RNF01 – O sistema deve possuir interface simples e intuitiva para facilitar o uso pelos operadores.
-
 RNF02 – O sistema deve responder rapidamente às ações do usuário.
-
 RNF03 – O sistema deve funcionar em navegadores modernos.
-
 RNF04 – O sistema deve possuir organização de código que facilite manutenção futura.
 
-**Gestão do Projeto**
-**Metodologia Utilizada**
+###**Gestão do Projeto**
 
+####**Metodologia Utilizada**
 O desenvolvimento do sistema foi realizado utilizando princípios da metodologia Scrum, uma abordagem ágil amplamente utilizada no desenvolvimento de software.
 Durante o projeto, o trabalho foi organizado em sprints, nas quais foram planejadas e desenvolvidas as funcionalidades do sistema de forma incremental.
 
 As principais cerimônias utilizadas foram:
+- Planejamento de Sprint
+- Desenvolvimento das tarefas
+- Revisão das funcionalidades implementadas
 
-Planejamento de Sprint
-
-Desenvolvimento das tarefas
-
-Revisão das funcionalidades implementadas
-
-Papéis da Equipe
+####**Papéis da Equipe**
 Integrante	Papel
 Otávio	Product Owner
 Mateus	Desenvolvedor
@@ -83,7 +81,7 @@ Cadu	Desenvolvedor
 
 O Product Owner (PO) foi responsável por organizar o backlog do produto e priorizar as funcionalidades a serem desenvolvidas durante o projeto.
 
-**Números do Projeto**
+###**Números do Projeto**
 
 Data de início do projeto: 19/12/2025
 
@@ -93,7 +91,7 @@ Duração média das sprints: 2 semanas
 
 As tarefas foram organizadas e acompanhadas utilizando uma ferramenta de gestão de projetos.
 
-**Backlog Inicial**
+####**Backlog Inicial**
 
 História 1
 História 2
@@ -104,7 +102,7 @@ História 6
 História 7
 História 8
 
-Backlog Final
+####**Backlog Final**
 
 História 1
 História 2
@@ -113,7 +111,7 @@ História 4
 História 6
 História 7
 
-**Transbordo de Tarefas**
+####**Transbordo de Tarefas**
 
 Durante o desenvolvimento algumas tarefas precisaram ser reorganizadas entre sprints devido à complexidade de implementação de determinadas funcionalidades. Apesar disso, a maior parte das funcionalidades planejadas foi concluída conforme o esperado.
 **Histórias 5 e 8 não foram desenvolvidas**
@@ -154,7 +152,7 @@ Funções e componentes foram reutilizados sempre que possível, evitando duplic
 **Separação de Responsabilidades**
 Cada componente do sistema possui uma responsabilidade específica, tornando o código mais organizado e fácil de compreender.
 
-**Conclusão**
+###**Conclusão**
 Lições Aprendidas
 O desenvolvimento do sistema Meucadinho permitiu aplicar na prática diversos conceitos estudados durante a disciplina de Engenharia de Software.
 
