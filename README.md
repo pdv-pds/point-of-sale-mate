@@ -1,73 +1,173 @@
-# Welcome to your Lovable project
+**Meucadinho**
 
-## Project info
+**Introdução**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+O Meucadinho é um sistema de ponto de venda (PDV) desenvolvido com o objetivo de auxiliar pequenos estabelecimentos comerciais na realização e controle de vendas.
 
-## How can I edit this code?
+O sistema permite registrar produtos, realizar vendas e organizar as operações realizadas no caixa de forma simples e rápida. A aplicação foi desenvolvida com foco em praticidade e facilidade de uso, permitindo que operadores de caixa realizem as vendas de maneira intuitiva.
 
-There are several ways of editing your application.
+**Motivação**
 
-**Use Lovable**
+A motivação para o desenvolvimento do sistema surgiu da necessidade de pequenos comerciantes possuírem ferramentas simples e acessíveis para gerenciar suas vendas.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado ou são complexos para pequenos negócios. Dessa forma, o Meucadinho foi desenvolvido como uma solução acadêmica que demonstra como um sistema de vendas pode ser estruturado utilizando tecnologias modernas de desenvolvimento web.
 
-Changes made via Lovable will be committed automatically to this repo.
+**Telas do Sistema**
+**Tela Inicial**
 
-**Use your preferred IDE**
+<img width="1920" height="899" alt="{4409BD92-29FD-4111-A7B9-FB5AA62DA4A7}" src="https://github.com/user-attachments/assets/0876f96d-9793-4184-b4f3-105bbd612680" />
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+<img width="1611" height="777" alt="{F78F4BC8-6A51-4905-856F-F9758FA46462}" src="https://github.com/user-attachments/assets/6ee76c79-fdad-416c-a511-a55a5513bf5d" />
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+**Tela de Produtos**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+<img width="1829" height="893" alt="{6C12CE2C-8B13-4CCD-8938-897BA90C42E8}" src="https://github.com/user-attachments/assets/ae67ed5e-582b-4b36-ba91-e7cee03ebd88" />
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Tela de Usuários**
+<img width="1889" height="884" alt="{54555E23-584A-4A5A-AF89-161ED3F32D94}" src="https://github.com/user-attachments/assets/51998848-a3d1-4dca-a243-f2ef8c73e50c" />
 
-# Step 3: Install the necessary dependencies.
-npm i
+**Tela de Estoque**
+<img width="1873" height="887" alt="{876A23FC-72B2-441F-B5A3-911D7D91AD55}" src="https://github.com/user-attachments/assets/010f2b2a-ff5d-4830-878a-84ca87facd05" />
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
 
-**Edit a file directly in GitHub**
+**Requisitos**
+**Histórias de Usuário**
+**História:	Descrição**
+Historia 1: Como Operador de Caixa, eu quero adicionar produtos ao carrinho de vendas via código de barras ou código interno do produto, para que o atendimento seja rápido.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Historia 2: Como Operador de Caixa, eu quero buscar um produto pelo nome, para que eu consiga vender itens cuja etiqueta está ilegível.
 
-**Use GitHub Codespaces**
+Historia 3: Como Operador de Caixa, eu quero informar o valor recebido e ver o troco calculado na tela, se houver, para que eu não cometa erros matemáticos ao devolver o dinheiro.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Historia 4: Como Operador de Caixa, eu quero remover um item específico do carrinho de vendas atual antes de finalizar a venda, para que eu possa corrigir erros de entrada.
 
-## What technologies are used for this project?
+Historia 5: Como Operador de Caixa, eu quero informar, ao final do dia, visualizar o total vendido, para que eu possa conferir se o dinheiro na gaveta bate com o sistema.
 
-This project is built with:
+Historia 6: Como Administrador, eu quero cadastrar, editar e excluir produtos (nome, preço de venda, código de barras e código interno), para que o catálogo de vendas esteja sempre atualizado.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Historia 7: Como Administrador, eu quero dar entrada na quantidade de estoque dos produtos, para que o sistema saiba exatamente quantos itens temos disponíveis." (Nota: O caixa só dá baixa (tira), o admin dá entrada (põe)
 
-## How can I deploy this project?
+Historia 8: Como Administrador, eu quero cadastrar, editar e remover Operadores de Caixa e suas senhas, para que novos funcionários possam acessar o sistema.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+**Requisitos Não Funcionais**
 
-## Can I connect a custom domain to my Lovable project?
+RNF01 – O sistema deve possuir interface simples e intuitiva para facilitar o uso pelos operadores.
 
-Yes, you can!
+RNF02 – O sistema deve responder rapidamente às ações do usuário.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+RNF03 – O sistema deve funcionar em navegadores modernos.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+RNF04 – O sistema deve possuir organização de código que facilite manutenção futura.
+
+**Gestão do Projeto**
+**Metodologia Utilizada**
+
+O desenvolvimento do sistema foi realizado utilizando princípios da metodologia Scrum, uma abordagem ágil amplamente utilizada no desenvolvimento de software.
+Durante o projeto, o trabalho foi organizado em sprints, nas quais foram planejadas e desenvolvidas as funcionalidades do sistema de forma incremental.
+
+As principais cerimônias utilizadas foram:
+
+Planejamento de Sprint
+
+Desenvolvimento das tarefas
+
+Revisão das funcionalidades implementadas
+
+Papéis da Equipe
+Integrante	Papel
+Otávio	Product Owner
+Mateus	Desenvolvedor
+Samuel	Desenvolvedor
+Cadu	Desenvolvedor
+
+O Product Owner (PO) foi responsável por organizar o backlog do produto e priorizar as funcionalidades a serem desenvolvidas durante o projeto.
+
+**Números do Projeto**
+
+Data de início do projeto: 19/12/2025
+
+Total de sprints: 4
+
+Duração média das sprints: 2 semanas
+
+As tarefas foram organizadas e acompanhadas utilizando uma ferramenta de gestão de projetos.
+
+**Backlog Inicial**
+
+História 1
+História 2
+História 3
+História 4
+História 5
+História 6
+História 7
+História 8
+
+Backlog Final
+
+História 1
+História 2
+História 3
+História 4
+História 6
+História 7
+
+**Transbordo de Tarefas**
+
+Durante o desenvolvimento algumas tarefas precisaram ser reorganizadas entre sprints devido à complexidade de implementação de determinadas funcionalidades. Apesar disso, a maior parte das funcionalidades planejadas foi concluída conforme o esperado.
+**Histórias 5 e 8 não foram desenvolvidas**
+
+**Análise e Projeto do Software**
+Projeto Arquitetural
+
+O sistema Meucadinho foi desenvolvido utilizando uma arquitetura baseada na separação de responsabilidades entre os diferentes componentes da aplicação.
+Essa arquitetura permite maior organização do código e facilita futuras manutenções e expansões do sistema.
+
+A aplicação pode ser dividida em três partes principais:
+- Interface de usuário (Frontend)
+- Lógica da aplicação
+- Banco de dados
+
+Projeto de Componentes
+
+O sistema foi estruturado em diferentes módulos responsáveis por funcionalidades específicas.
+
+Principais componentes do sistema:
+- Módulo de vendas
+- Módulo de gerenciamento de produtos
+- Interface do usuário
+- Gerenciamento de dados
+
+Essa organização permite que cada parte do sistema seja desenvolvida e mantida de forma independente.
+
+**Princípios de Projeto**
+
+Durante o desenvolvimento foram aplicados princípios importantes da engenharia de software:
+
+**Modularização**
+O sistema foi dividido em diferentes módulos para facilitar a organização e manutenção do código.
+
+**Reutilização de Código**
+Funções e componentes foram reutilizados sempre que possível, evitando duplicação de código.
+
+**Separação de Responsabilidades**
+Cada componente do sistema possui uma responsabilidade específica, tornando o código mais organizado e fácil de compreender.
+
+**Conclusão**
+Lições Aprendidas
+O desenvolvimento do sistema Meucadinho permitiu aplicar na prática diversos conceitos estudados durante a disciplina de Engenharia de Software.
+
+Entre os principais aprendizados estão:
+- organização de requisitos
+- planejamento de desenvolvimento em sprints
+- trabalho colaborativo em equipe
+- utilização de ferramentas de controle de versão
+
+**Dificuldades Encontradas**
+
+Durante o desenvolvimento do projeto algumas dificuldades foram encontradas, como:
+- aprendizado das tecnologias utilizadas
+- organização das tarefas do projeto
+- integração entre diferentes partes do sistema
+- trabalho funcional assíncrono 
