@@ -142,6 +142,55 @@ Principais componentes do sistema:
 
 Essa organização permite que cada parte do sistema seja desenvolvida e mantida de forma independente.
 
+## Diagrama de Classes
+
+```mermaid
+classDiagram
+
+class Produto {
+  +int id
+  +string nome
+  +float preco
+  +int estoque
+  +cadastrarProduto()
+  +atualizarProduto()
+}
+
+class Venda {
+  +int id
+  +date data
+  +float total
+  +finalizarVenda()
+  +calcularTotal()
+}
+
+class ItemVenda {
+  +int quantidade
+  +float subtotal
+  +calcularSubtotal()
+}
+
+class Usuario {
+  +int id
+  +string nome
+  +string login
+  +string senha
+  +realizarLogin()
+}
+
+class Caixa {
+  +int id
+  +date dataAbertura
+  +float saldoInicial
+  +abrirCaixa()
+  +fecharCaixa()
+}
+
+Venda "1" --> "*" ItemVenda
+Produto "1" --> "*" ItemVenda
+Usuario "1" --> "*" Venda
+Caixa "1" --> "*" Venda
+```
 <h4>Princípios de Projeto</h4>
 
 Durante o desenvolvimento foram aplicados princípios importantes da engenharia de software:
