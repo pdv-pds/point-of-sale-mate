@@ -145,7 +145,7 @@ MySQL / PostgreSQL<br>
 Git<br>
 GitHub<br>
 Jira (gestão do projeto)<br>
-  
+<br>
 
 A aplicação pode ser dividida em três partes principais:
 - Interface de usuário (Frontend)
