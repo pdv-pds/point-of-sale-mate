@@ -125,6 +125,27 @@ Projeto Arquitetural
 O sistema Meucadinho foi desenvolvido utilizando uma arquitetura baseada na separação de responsabilidades entre os diferentes componentes da aplicação.
 Essa arquitetura permite maior organização do código e facilita futuras manutenções e expansões do sistema.
 
+
+<h3>Tecnologias Utilizadas</h3>
+
+<h4>Frontend</h4>
+HTML
+CSS
+JavaScript
+React
+
+<h4>Backend</h4>
+Node.js
+API REST
+
+<h4>Banco de dados</h4>
+MySQL / PostgreSQL
+
+<h4>Ferramentas</h4>
+Git
+GitHub
+Jira (gestão do projeto)
+
 A aplicação pode ser dividida em três partes principais:
 - Interface de usuário (Frontend)
 - Lógica da aplicação
