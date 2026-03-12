@@ -129,22 +129,22 @@ Essa arquitetura permite maior organização do código e facilita futuras manut
 <h2>Tecnologias Utilizadas</h2>
 
 <h4>Frontend</h4>
-HTML  
-CSS  
-JavaScript  
-React  
+HTML<br>
+CSS<br>
+JavaScript<br>
+React<br>
 
 <h4>Backend</h4>
-Node.js  
-API REST  
+Node.js<br>
+API REST<br>
 
 <h4>Banco de dados</h4>
-MySQL / PostgreSQL  
+MySQL / PostgreSQL<br>
 
 <h4>Ferramentas</h4>
-Git  
-GitHub  
-Jira (gestão do projeto)  
+Git<br>
+GitHub<br>
+Jira (gestão do projeto)<br>
   
 
 A aplicação pode ser dividida em três partes principais:
