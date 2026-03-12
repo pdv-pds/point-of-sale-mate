@@ -14,14 +14,14 @@ Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado 
 
 <h2>Telas do Sistema</h2>
 
-<h3>**Tela Inicial**</h3>
+<h3>Tela Inicial</h3>
 
 <img width="1920" height="899" alt="{4409BD92-29FD-4111-A7B9-FB5AA62DA4A7}" src="https://github.com/user-attachments/assets/0876f96d-9793-4184-b4f3-105bbd612680" />
 
 <img width="1611" height="777" alt="{F78F4BC8-6A51-4905-856F-F9758FA46462}" src="https://github.com/user-attachments/assets/6ee76c79-fdad-416c-a511-a55a5513bf5d" />
 
 
-<h3>**Tela de Produtos</h3>
+<h3>Tela de Produtos</h3>
 
 <img width="1829" height="893" alt="{6C12CE2C-8B13-4CCD-8938-897BA90C42E8}" src="https://github.com/user-attachments/assets/ae67ed5e-582b-4b36-ba91-e7cee03ebd88" />
 
@@ -34,9 +34,9 @@ Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado 
 
 <h2>Requisitos</h2>
 
-####**Histórias de Usuário**
+<h3>Histórias de Usuário</h3>
 
-**História:	Descrição**
+<h4>História:	Descrição</h4>
 
 Historia 1: Como Operador de Caixa, eu quero adicionar produtos ao carrinho de vendas via código de barras ou código interno do produto, para que o atendimento seja rápido.
 
@@ -54,16 +54,16 @@ Historia 7: Como Administrador, eu quero dar entrada na quantidade de estoque do
 
 Historia 8: Como Administrador, eu quero cadastrar, editar e remover Operadores de Caixa e suas senhas, para que novos funcionários possam acessar o sistema.
 
-####**Requisitos Não Funcionais**
+<h3>Requisitos Não Funcionais</h3>
 
 RNF01 – O sistema deve possuir interface simples e intuitiva para facilitar o uso pelos operadores.
 RNF02 – O sistema deve responder rapidamente às ações do usuário.
 RNF03 – O sistema deve funcionar em navegadores modernos.
 RNF04 – O sistema deve possuir organização de código que facilite manutenção futura.
 
-###**Gestão do Projeto**
+<h2>Gestão do Projeto</h2>
 
-####**Metodologia Utilizada**
+<h3>Metodologia Utilizada</h3>
 O desenvolvimento do sistema foi realizado utilizando princípios da metodologia Scrum, uma abordagem ágil amplamente utilizada no desenvolvimento de software.
 Durante o projeto, o trabalho foi organizado em sprints, nas quais foram planejadas e desenvolvidas as funcionalidades do sistema de forma incremental.
 
@@ -72,7 +72,7 @@ As principais cerimônias utilizadas foram:
 - Desenvolvimento das tarefas
 - Revisão das funcionalidades implementadas
 
-####**Papéis da Equipe**
+<h3>Papéis da Equipe</h3>
 Integrante	Papel
 Otávio	Product Owner
 Mateus	Desenvolvedor
@@ -81,7 +81,7 @@ Cadu	Desenvolvedor
 
 O Product Owner (PO) foi responsável por organizar o backlog do produto e priorizar as funcionalidades a serem desenvolvidas durante o projeto.
 
-###**Números do Projeto**
+<h2>Números do Projeto</h2>
 
 Data de início do projeto: 19/12/2025
 
@@ -91,7 +91,7 @@ Duração média das sprints: 2 semanas
 
 As tarefas foram organizadas e acompanhadas utilizando uma ferramenta de gestão de projetos.
 
-####**Backlog Inicial**
+<h3>Backlog Inicial</h3>
 
 História 1
 História 2
@@ -102,7 +102,7 @@ História 6
 História 7
 História 8
 
-####**Backlog Final**
+<h3>Backlog Final</h3>
 
 História 1
 História 2
@@ -111,12 +111,12 @@ História 4
 História 6
 História 7
 
-####**Transbordo de Tarefas**
+<h3>Transbordo de Tarefas</h3>
 
 Durante o desenvolvimento algumas tarefas precisaram ser reorganizadas entre sprints devido à complexidade de implementação de determinadas funcionalidades. Apesar disso, a maior parte das funcionalidades planejadas foi concluída conforme o esperado.
-**Histórias 5 e 8 não foram desenvolvidas**
+<h4>Histórias 5 e 8 não foram desenvolvidas</h4>
 
-**Análise e Projeto do Software**
+<h2>Análise e Projeto do Software</h2>
 Projeto Arquitetural
 
 O sistema Meucadinho foi desenvolvido utilizando uma arquitetura baseada na separação de responsabilidades entre os diferentes componentes da aplicação.
@@ -139,20 +139,20 @@ Principais componentes do sistema:
 
 Essa organização permite que cada parte do sistema seja desenvolvida e mantida de forma independente.
 
-**Princípios de Projeto**
+<h4>Princípios de Projeto</h4>
 
 Durante o desenvolvimento foram aplicados princípios importantes da engenharia de software:
 
-**Modularização**
+<h4>Modularização</h4>
 O sistema foi dividido em diferentes módulos para facilitar a organização e manutenção do código.
 
-**Reutilização de Código**
+<h4>Reutilização de Código</h4>
 Funções e componentes foram reutilizados sempre que possível, evitando duplicação de código.
 
-**Separação de Responsabilidades**
+<h4>Separação de Responsabilidades</h4>
 Cada componente do sistema possui uma responsabilidade específica, tornando o código mais organizado e fácil de compreender.
 
-###**Conclusão**
+<h2>Conclusão</h2>
 Lições Aprendidas
 O desenvolvimento do sistema Meucadinho permitiu aplicar na prática diversos conceitos estudados durante a disciplina de Engenharia de Software.
 
@@ -162,7 +162,7 @@ Entre os principais aprendizados estão:
 - trabalho colaborativo em equipe
 - utilização de ferramentas de controle de versão
 
-**Dificuldades Encontradas**
+<h4>Dificuldades Encontradas</h4>
 
 Durante o desenvolvimento do projeto algumas dificuldades foram encontradas, como:
 - aprendizado das tecnologias utilizadas
