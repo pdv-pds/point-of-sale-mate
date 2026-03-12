@@ -1,38 +1,38 @@
-<h1>****Meucadinho****</h1>
+<h1>Meucadinho</h1>
 
-<h3>**Introdução**</h3>
+<h2>Introdução</h2>
 
 O Meucadinho é um sistema de ponto de venda (PDV) desenvolvido com o objetivo de auxiliar pequenos estabelecimentos comerciais na realização e controle de vendas.
 
 O sistema permite registrar produtos, realizar vendas e organizar as operações realizadas no caixa de forma simples e rápida. A aplicação foi desenvolvida com foco em praticidade e facilidade de uso, permitindo que operadores de caixa realizem as vendas de maneira intuitiva.
 
-<h4>**Motivação**</h4>
+<h4>Motivação</h4>
 
 A motivação para o desenvolvimento do sistema surgiu da necessidade de pequenos comerciantes possuírem ferramentas simples e acessíveis para gerenciar suas vendas.
 
 Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado ou são complexos para pequenos negócios. Dessa forma, o Meucadinho foi desenvolvido como uma solução acadêmica que demonstra como um sistema de vendas pode ser estruturado utilizando tecnologias modernas de desenvolvimento web.
 
-<h3>**Telas do Sistema**</h3>
+<h2>Telas do Sistema</h2>
 
-####**Tela Inicial**
+<h3>**Tela Inicial**</h3>
 
 <img width="1920" height="899" alt="{4409BD92-29FD-4111-A7B9-FB5AA62DA4A7}" src="https://github.com/user-attachments/assets/0876f96d-9793-4184-b4f3-105bbd612680" />
 
 <img width="1611" height="777" alt="{F78F4BC8-6A51-4905-856F-F9758FA46462}" src="https://github.com/user-attachments/assets/6ee76c79-fdad-416c-a511-a55a5513bf5d" />
 
 
-####**Tela de Produtos**
+<h3>**Tela de Produtos</h3>
 
 <img width="1829" height="893" alt="{6C12CE2C-8B13-4CCD-8938-897BA90C42E8}" src="https://github.com/user-attachments/assets/ae67ed5e-582b-4b36-ba91-e7cee03ebd88" />
 
-####**Tela de Usuários**
+<h3>Tela de Usuários</h3>
 <img width="1889" height="884" alt="{54555E23-584A-4A5A-AF89-161ED3F32D94}" src="https://github.com/user-attachments/assets/51998848-a3d1-4dca-a243-f2ef8c73e50c" />
 
-####**Tela de Estoque**
+<h3>Tela de Estoque</h3>
 <img width="1873" height="887" alt="{876A23FC-72B2-441F-B5A3-911D7D91AD55}" src="https://github.com/user-attachments/assets/010f2b2a-ff5d-4830-878a-84ca87facd05" />
 
 
-###**Requisitos**
+<h2>Requisitos</h2>
 
 ####**Histórias de Usuário**
 
