@@ -126,30 +126,32 @@ O sistema Meucadinho foi desenvolvido utilizando uma arquitetura baseada na sepa
 Essa arquitetura permite maior organização do código e facilita futuras manutenções e expansões do sistema.
 
 
-<h3>Tecnologias Utilizadas</h3>
+<h2>Tecnologias Utilizadas</h2>
 
 <h4>Frontend</h4>
-HTML
-CSS
-JavaScript
-React
+HTML  
+CSS  
+JavaScript  
+React  
 
 <h4>Backend</h4>
-Node.js
-API REST
+Node.js  
+API REST  
 
 <h4>Banco de dados</h4>
-MySQL / PostgreSQL
+MySQL / PostgreSQL  
 
 <h4>Ferramentas</h4>
-Git
-GitHub
-Jira (gestão do projeto)
+Git  
+GitHub  
+Jira (gestão do projeto)  
+  
 
 A aplicação pode ser dividida em três partes principais:
 - Interface de usuário (Frontend)
 - Lógica da aplicação
 - Banco de dados
+
 
 Projeto de Componentes
 
