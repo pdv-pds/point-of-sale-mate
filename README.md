@@ -135,8 +135,8 @@ JavaScript<br>
 React<br>
 
 <h4>Backend</h4>
-Node.js<br>
-API REST<br>
+Java<br>
+Spring<br>
 
 <h4>Banco de dados</h4>
 MySQL / PostgreSQL<br>
