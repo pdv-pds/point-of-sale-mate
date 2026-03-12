@@ -1,18 +1,18 @@
-#****Meucadinho****
+<h1>****Meucadinho****</h1>
 
-###**Introdução**
+<h3>**Introdução**</h3>
 
 O Meucadinho é um sistema de ponto de venda (PDV) desenvolvido com o objetivo de auxiliar pequenos estabelecimentos comerciais na realização e controle de vendas.
 
 O sistema permite registrar produtos, realizar vendas e organizar as operações realizadas no caixa de forma simples e rápida. A aplicação foi desenvolvida com foco em praticidade e facilidade de uso, permitindo que operadores de caixa realizem as vendas de maneira intuitiva.
 
-####**Motivação**
+<h4>**Motivação**</h4>
 
 A motivação para o desenvolvimento do sistema surgiu da necessidade de pequenos comerciantes possuírem ferramentas simples e acessíveis para gerenciar suas vendas.
 
 Muitos sistemas de ponto de venda disponíveis no mercado possuem custo elevado ou são complexos para pequenos negócios. Dessa forma, o Meucadinho foi desenvolvido como uma solução acadêmica que demonstra como um sistema de vendas pode ser estruturado utilizando tecnologias modernas de desenvolvimento web.
 
-###**Telas do Sistema**
+<h3>**Telas do Sistema**</h3>
 
 ####**Tela Inicial**
 
