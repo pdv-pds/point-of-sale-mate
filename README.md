@@ -57,8 +57,11 @@ Historia 8: Como Administrador, eu quero cadastrar, editar e remover Operadores 
 <h3>Requisitos Não Funcionais</h3>
 
 RNF01 – O sistema deve possuir interface simples e intuitiva para facilitar o uso pelos operadores.
+
 RNF02 – O sistema deve responder rapidamente às ações do usuário.
+
 RNF03 – O sistema deve funcionar em navegadores modernos.
+
 RNF04 – O sistema deve possuir organização de código que facilite manutenção futura.
 
 <h2>Gestão do Projeto</h2>
